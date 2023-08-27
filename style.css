@@ -1,0 +1,453 @@
+@charset "UTF-8";
+html {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #000;
+  background: #ddd;
+  box-sizing: border-box;
+}
+
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  width: 40%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.blue-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.blue-button:hover {
+  background-color: #0056b3;
+}
+
+
+.typewriter  {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .7500s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+
+
+
+body {
+  margin: 5rem auto 0;
+  max-width: 900px;
+  background: white;
+  border: 1px solid #aaa;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+[contenteditable]:hover, [contenteditable]:focus,
+input:hover,
+input:focus {
+  background: #e3e9f7;
+  outline: 2px solid #3871f4;
+}
+
+.group:after, .invoicelist-footer:after, .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+
+
+
+/**
+* Small Grid
+**/
+.row {
+  position: relative;
+  display: block;
+  width: 100%;
+  font-size: 0;
+}
+
+.col, .bank, .info, .company_details, .logoholder,
+[class*=col-] {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+  min-height: 1px;
+}
+
+.col-4 {
+  width: 25%;
+}
+
+.col-3 {
+  width: 33.33%;
+}
+
+.col-2 {
+  width: 50%;
+}
+
+.col-2-4 {
+  width: 75%;
+}
+
+.col-1 {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+a {
+  color: #7c05eb;
+  text-decoration: none;
+  border-radius: 5px;
+
+  height: 30px;
+}
+
+p {
+  margin: 0;
+}
+
+.control-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,3,153,1) 0%, rgba(1,202,251,1) 73%, rgba(0,212,255,1) 100%); color: white;
+  line-height: 4rem;
+  height: 4rem;
+}
+.control-bar .slogan {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-right: 2rem;
+}
+.control-bar label {
+  margin-right: 1rem;
+}
+.control-bar a {
+  margin: 0;
+  padding: 0.5em 1em;
+  background: rgba(255, 255, 255, 0.8);
+}
+.control-bar a:hover {
+  background: white;
+}
+.control-bar input {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 0;
+  max-width: 30px;
+  text-align: center;
+}
+.control-bar input:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hidetax .taxrelated {
+  display: none;
+}
+
+.showtax .notaxrelated {
+  display: none;
+}
+
+.hide_to_from .from {
+  display: none;
+}
+
+.hide_to_from  .to{
+  display: none;
+}
+
+
+.hide_footnote .to{
+  display: none;
+}
+/**
+ * HEADER
+ */
+header {
+  margin: 1rem 0 0;
+  padding: 0 0 2rem 0;
+  border-bottom: 3pt solid #03a6ee;
+}
+header p {
+  font-size: 1.1rem;
+}
+header a {
+  color: #000;
+}
+
+.logo {
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  border: none;
+  fill: #03a6ee;
+}
+
+.logoholder {
+  width: 10%;
+}
+
+.company_details {
+  width: 30%;
+}
+
+.info {
+  width: 30%;
+}
+
+.bank {
+  width: 30%;
+}
+
+/**
+ * SECTION
+ */
+.section {
+  margin: 2rem 0 0;
+}
+
+.smallme {
+  display: inline-block;
+  text-transform: uppercase;
+  margin: 0 0 2rem 0;
+  font-size: 0.9rem;
+}
+
+.client {
+  margin: 0 0 0rem 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  color: #03a6ee;
+}
+
+.details input {
+  display: inline;
+  margin: 0 0 0 0.5rem;
+  border: none;
+  width: 50px;
+  min-width: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.unit_price:before,
+.price:before,
+.sum:before,
+.tax:before,
+#total_price:before,
+
+
+/**
+ * INVOICELIST BODY
+ */
+.invoicelist-body {
+  margin: 1rem;
+}
+.invoicelist-body table {
+  width: 100%;
+}
+.invoicelist-body thead {
+  text-align: left;
+  border-bottom: 2pt solid #666;
+}
+.invoicelist-body td, .invoicelist-body th {
+  position: relative;
+  padding: 5px;
+}
+.invoicelist-body tr:nth-child(even) {
+  background: #ccc;
+}
+.invoicelist-body tr:hover .removeRow {
+  display: block;
+}
+.invoicelist-body input {
+  display: inline;
+  margin: 0;
+  border: none;
+  width: 80%;
+  min-width: 0;
+  background: transparent;
+  text-align: left;
+}
+.invoicelist-body .control {
+  display: inline-block;
+  color: white;
+  background: #03a6ee;
+  padding: 3px 7px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.invoicelist-body .control:hover {
+  background: #03a6ee;
+}
+.invoicelist-body .newRow {
+  margin: 0.5rem 0;
+  float: left;
+}
+.invoicelist-body .removeRow {
+  display: none;
+  position: absolute;
+  top: 0.1rem;
+  bottom: 0.1rem;
+  left: -1.3rem;
+  font-size: 0.7rem;
+  border-radius: 3px 0 0 3px;
+  padding: 0.5rem;
+}
+
+/**
+ * INVOICE LIST FOOTER
+ */
+.invoicelist-footer {
+  margin: 1rem;
+}
+.invoicelist-footer table {
+  float: right;
+  width: 25%;
+}
+.invoicelist-footer table td {
+  padding: 1rem 2rem 0 1rem;
+  text-align: right;
+}
+.invoicelist-footer table tr:nth-child(2) td {
+  padding-top: 0;
+}
+.invoicelist-footer table #total_price {
+  font-size: 2rem;
+  color: #03a6ee;
+}
+
+/**
+ * NOTE
+ */
+.note {
+  margin: 1rem;
+}
+.hidenote .note {
+  display: none;
+}
+.note h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+/**
+ * FOOTER
+ */
+footer {
+  display: block;
+  margin: 1rem 0;
+  padding: 1rem 0 0;
+}
+footer p {
+  font-size: 0.8rem;
+}
+
+/**
+ * PRINT STYLE
+ */
+@media print {
+  html {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  body {
+    width: 100%;
+    border: none;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .control,
+.control-bar {
+    display: none !important;
+  }
+
+  [contenteditable]:hover, [contenteditable]:focus {
+    outline: none;
+  }
+}
+
+
+
+

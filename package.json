@@ -1,0 +1,55 @@
+{
+  "name": "generator",
+  "email": "coderlenovo@gmail.com",
+  "homepage": "https://github.com/owner/mwita-lnx",
+  "version": "1.0.0",
+  "description": "invoice generaor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "electron-builder"
+  },
+  "build": {
+        "extraResources": [
+        {
+            "from": "./templates",
+            "to": "templates",
+            "filter": [
+                "**/*"
+              
+            ]
+        }
+    ],
+
+    "asar": false,
+    "appId": "electron-blog-example",
+    "dmg": {
+      "title": "${productName} ${version}"
+    },
+    "linux": {
+      "target": [
+        "AppImage"        
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    },
+    "nsis":{
+      "allowToChangeInstallationDirectory" : true,
+      "oneClick": false
+
+    }
+  },
+  "author": "lnx ",
+  "license": "ISC",
+  "dependencies": {
+    "@electron/remote": "^2.0.10",
+    "puppeteer": "^20.9.0"
+  },
+  "devDependencies": {
+    "electron": "^25.3.2",
+    "electron-builder": "^24.6.3"
+  }
+}

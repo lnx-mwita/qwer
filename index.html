@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>INVOICE GENERATOR</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+
+</head>
+
+<body class="body">
+  <!-- partial:index.partial.html -->
+
+  <div id="popupdnt" class="popup">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="document.getElementById('popupdnt').style.display = 'none'">&times;</span>
+      <h2>Select a Delivery Note Template </h2>
+      <input type="radio" name="optionsivc" value="temp1" > Template 1<br>
+      <input type="radio" name="optionsivc" value="temp2"> Template 2<br>
+      <button class="blue-button" onclick="handleDone('optionsivc')">GENERATE</button>
+    </div>
+  </div>
+
+  <div id="popupinvoice" class="popup" >
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="document.getElementById('popupinvoice').style.display = 'none'">&times;</span>
+      <h2>Select an Invoice Template </h2>
+      <input type="radio" name="options" value="temp1" > Template 1<br>
+      <input type="radio" name="options" value="temp2"> Template 2<br>
+      
+      <button class="blue-button generate" id="t" onclick="handleDone('options')">GENERATE</button>
+    </div>
+  </div>
+
+
+  <div class="control-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-2-4">
+          <div class="slogan">INVOICE GENERATOR</div>
+          
+          <label for="config_note">Bill to:
+            <input type="checkbox" id="config_note" />
+          </label>
+          <label for="to_from">Bill to & Shipped to:
+            <input type="checkbox" checked id="to_from" />
+          </label>
+          <a href="" class="generatednt">DELIVERY NOTE</a>
+        </div>
+        <div class="col-4 text-right">
+          <a href="" class="generateivc">GENERATE INVOICE</a>
+        </div>
+    
+        <!--.col-->
+      </div><!--.row-->
+    </div><!--.container-->
+  </div><!--.control-bar-->
+
+  <header class="row data">
+    <div class="logoholder text-center">
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
+        viewBox="0 0 40 35" version="1.1" xml:space="preserve"
+        style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421">
+        <path
+          d="M0.892549 17.4914C0.892549 15.4277 8.6513 1.9891 10.4385 0.957249 12.2257-0.074605 27.7432-0.074605 29.5305 0.957249 31.3177 1.9891 39.0764 15.4277 39.0764 17.4914 39.0764 19.5551 31.3177 32.9936 29.5305 34.0255 27.7432 35.0573 12.2257 35.0573 10.4385 34.0255 8.6513 32.9936 0.892549 19.5551 0.892549 17.4914ZM17.1714 15.4337C17.2068 15.3566 17.7619 13.6242 20.2278 12.5858 20.9639 12.2758 21.746 12.1209 22.5742 12.1209 23.4023 12.1209 24.1844 12.2758 24.9206 12.5858 25.6567 12.8958 26.2979 13.3185 26.8443 13.8539 27.3906 14.3894 27.822 15.0178 28.1383 15.7392 28.4546 16.4606 28.6127 17.2271 28.6127 18.0387 28.6127 18.8503 28.4546 19.6168 28.1383 20.3382 27.822 21.0596 27.3906 21.688 26.8443 22.2234 26.2979 22.7588 25.6567 23.1815 24.9206 23.4915 24.1844 23.8015 23.4023 23.9565 22.5742 23.9565 21.746 23.9565 20.9639 23.8015 20.2278 23.4915 19.5951 23.2251 19.0326 22.8755 18.452 22.363L17.9745 23.6691 14.9898 23.6691 10.504 12.3914 14.5239 12.3914 16.4735 17.2947 17.171 15.4335 17.1714 15.4337ZM21.6339 15.8575C20.5056 16.3345 20.1587 17.2332 20.1587 18.0387 20.1587 18.3656 20.222 18.6727 20.3485 18.9602 20.475 19.2476 20.6476 19.4984 20.8661 19.7126 21.0847 19.9267 21.3406 20.0958 21.6339 20.2198 21.9272 20.3438 22.2406 20.4058 22.5742 20.4058 22.9077 20.4058 23.2212 20.3438 23.5145 20.2198 23.8078 20.0958 24.0637 19.9267 24.2822 19.7126 24.5008 19.4984 24.6733 19.2476 24.7998 18.9602 24.9263 18.6727 24.9896 18.3656 24.9896 18.0387 24.9896 17.7118 24.9263 17.4046 24.7998 17.1172 24.6733 16.8297 24.5008 16.5789 24.2822 16.3648 24.0637 16.1506 23.8078 15.9815 23.5145 15.8575 23.2212 15.7335 22.9077 15.6715 22.5742 15.6715 22.2406 15.6715 21.9272 15.7335 21.6339 15.8575Z" />
+      </svg><!--.logo-->
+    </div><!--.logoholder-->
+
+
+    <div class="company_details" contenteditable>
+
+      <strong>
+        <p class="company_name">COMPANY NAME</p>
+      </strong><br>
+      <p class="company_detail typewriter">
+        Nairobi<br>
+        Plaza house<br>
+        additional..
+      </p>
+    </div><!--.col-->
+    <div class="info">
+      <p contenteditable class="contact_info">
+        Web: <a href="#">www.yourwebsite.com</a><br>
+        Mail: <a href="#">name@domain.com</a><br>
+        Tel: +254 757 xxx 121<br>
+      </p>
+    </div>
+
+    <div class="col-3 bank">
+      <strong>PAYMENT INFO</strong>
+      <p class="payment_info" contenteditable>
+        Credit Card <br>
+        Card Type: Visa
+      </p>
+    </div><!--.col-->
+  </header>
+
+
+  <div class="row section">
+
+    <div class="col-2">
+      <p contenteditable class="smallme">invoice serial no</p><br>
+      <strong>Bill to:</strong>
+      <div class="from">
+
+        <p contenteditable class="client" id="from">
+          <strong>someone</strong><br>
+          Adress<br>
+          22850 Stadt
+        </p>
+      </div>
+    </div><!--.col-->
+    <div class="col-2 text-right details">
+      <strong>Shipped to:</strong>
+      <div class="to">
+        <p contenteditable class="client" id="from">
+          <strong>someone</strong><br>
+          Adress<br>
+          22850 Stadt
+        </p>
+      </div><!--.col-->
+    </div>
+    <div class="row section"></div>
+    <div class="col-2">
+      <h1 contenteditable><u>The Invoice</u></h1>
+    </div><!--.col-->
+    <div class="col-2 text-right details timeline">
+      <p contenteditable>
+        Date of invoice:: <input type="date" style="width: 100px" id="date" class="datePicker" /><br>
+        Bill number: <input type="text" style="width: 100px" value="#" /><br>
+        Payable to: <input class="twoweeks" style="width: 100px" type="date" />
+      </p>
+    </div><!--.col-->
+  </div>
+  </div><!--.row-->
+
+  <div class="invoicelist-body">
+    <table>
+      <thead contenteditable>
+        <th width="5%">No</th>
+        <th width="50%">Item Description</th>
+        <th width="10%">Quantity</th>
+        <th width="15%">Unit Price</th>
+        <th width="20%">Subtotal</th>
+      </thead>
+      <tbody class="table">
+        <tr>
+          <td><a class="control removeRow" href="#">x</a> <span class="id" id="1" contenteditable>1</span></td>
+          <td class="item_description" id="item_description" contenteditable></td>
+          <td class="amount"><input type="text" placeholder="quantity" /></td>
+          <td class="unit_price"><input type="text" placeholder="unit price" /></td>
+          <td class="subtotal" id="subtotal">68</td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="control newRow" href="#">+ ADD ITEM</a>
+  </div><!--.invoice-body-->
+
+  <div class="invoicelist-footer">
+    <table>
+      <tr>
+        <td><strong>TOTAL PRICE:</strong></td>
+        <td id="total_price" class="total"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="note" contenteditable>
+    <h2>Anmerkung:</h2>
+  </div><!--.note-->
+
+  <footer class="row">
+    <div class="col-1 text-center">
+      <p>
+      <h3>footenote</h3>
+      <p style="font-size: 1rem;" class="notaxrelated footnotes" contenteditable>All prices are inclusive of VAT where applicable</p>
+
+      </p>
+    </div>
+  </footer>
+  <!-- partial -->
+  <script src="./script.js"></script>
+
+
+  <script></script>
+</body>
+
+</html>
